@@ -50,15 +50,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Resources\FarmFields.png" />
-    <Content Include="Resources\Farmhouse.png" />
-    <Content Include="Resources\HerbalistsGarden.png" />
-    <Content Include="Resources\HerbalistsHut.png" />
-    <Content Include="Resources\Home.png" />
-    <Content Include="Resources\SpiderForest.png" />
-    <Content Include="Resources\TownGate.png" />
-    <Content Include="Resources\TownSquare.png" />
-    <Content Include="Resources\Trader.png" />
+    <Resource Include="Resources\FarmFields.png" />
+    <Resource Include="Resources\Farmhouse.png" />
+    <Resource Include="Resources\HerbalistsGarden.png" />
+    <Resource Include="Resources\HerbalistsHut.png" />
+    <Resource Include="Resources\Home.png" />
+    <Resource Include="Resources\SpiderForest.png" />
+    <Resource Include="Resources\TownGate.png" />
+    <Resource Include="Resources\TownSquare.png" />
+    <Resource Include="Resources\Trader.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
