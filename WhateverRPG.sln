@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhateverRPG", "WhateverRPG\WhateverRPG.csproj", "{6A32FBD5-0C5E-434E-B078-28A98828F7A7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhateverRPGEngine", "WhateverRPGEngine\WhateverRPGEngine.csproj", "{69C4BF8F-7029-408B-B47C-23C51C522240}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WERPG", "WERPG\WERPG.csproj", "{74EAD7B9-5D49-4F04-885B-B453E0B6FF9E}"
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6A32FBD5-0C5E-434E-B078-28A98828F7A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6A32FBD5-0C5E-434E-B078-28A98828F7A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6A32FBD5-0C5E-434E-B078-28A98828F7A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6A32FBD5-0C5E-434E-B078-28A98828F7A7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{69C4BF8F-7029-408B-B47C-23C51C522240}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{69C4BF8F-7029-408B-B47C-23C51C522240}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69C4BF8F-7029-408B-B47C-23C51C522240}.Release|Any CPU.ActiveCfg = Release|Any CPU
