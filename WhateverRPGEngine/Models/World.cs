@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using WhateverRPGEngine.ViewModels;
+
     public class World
     {
         private IList<Location> _locations = new List<Location>();

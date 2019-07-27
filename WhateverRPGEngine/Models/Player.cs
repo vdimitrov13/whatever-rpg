@@ -1,7 +1,8 @@
 ﻿namespace WhateverRPGEngine.Models
 {
-    using System.ComponentModel;
-    public class Player : INotifyPropertyChanged
+    using WhateverRPGEngine.Utils;
+
+    public class Player : BaseNotificationClass
     {
         private string _name;
         private int _hitPoints;
@@ -16,7 +17,7 @@
             set
             {
                 _name = value;
-                OnPropertyChanged("Name");
+                OnPropertyChanged(nameof(Name));
             }
         }
 
@@ -26,7 +27,7 @@
             set
             {
                 _characterClass = value;
-                OnPropertyChanged("CharacterClass");
+                OnPropertyChanged(nameof(CharacterClass));
             }
         }
 
@@ -36,7 +37,7 @@
             set
             {
                 _hitPoints = value;
-                OnPropertyChanged("Hitpoints");
+                OnPropertyChanged(nameof(HitPoints));
             }
         }
 
@@ -46,7 +47,7 @@
             set
             {
                 _experiencePoints = value;
-                OnPropertyChanged("ExperiencePoints");
+                OnPropertyChanged(nameof(ExperiencePoints));
             }
         }
 
@@ -56,7 +57,7 @@
             set
             {
                 _level = value;
-                OnPropertyChanged("Level");
+                OnPropertyChanged(nameof(Level));
             }
         }
 
@@ -66,15 +67,8 @@
             set
             {
                 _gold = value;
-                OnPropertyChanged("Gold");
+                OnPropertyChanged(nameof(Gold));
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
