@@ -1,5 +1,6 @@
 ﻿namespace WhateverRPGEngine.Models
 {
+    using System.Collections.ObjectModel;
     using WhateverRPGEngine.Utils;
 
     public class Player : BaseNotificationClass
@@ -10,6 +11,12 @@
         private int _level;
         private int _gold;
         private string _characterClass;
+
+        public Player()
+        {
+            Inventory = new ObservableCollection<GameItem>();
+            Quests = new ObservableCollection<QuestStatus>();
+        }
 
         public string Name
         {
@@ -70,5 +77,10 @@
                 OnPropertyChanged(nameof(Gold));
             }
         }
+
+        public ObservableCollection<GameItem> Inventory { get; set; }
+
+        public ObservableCollection<QuestStatus> Quests { get; set; }
+
     }
 }

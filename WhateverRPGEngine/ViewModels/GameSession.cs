@@ -1,5 +1,6 @@
 ﻿namespace WhateverRPGEngine.ViewModels
 {
+    using System.Linq;
     using WhateverRPGEngine.Factories;
     using WhateverRPGEngine.Models;
     using WhateverRPGEngine.Utils;
@@ -39,8 +40,11 @@
             };
 
             CurrentWorld = WorldFactory.CreateWorld();
-
+            CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1001));
+            CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1002));
             CurrentLocation = CurrentWorld.LocationAt(0, 0);
+
+            GivePlayerQuestsAtLocation();
         }
 
         public bool HasLocationToNorth
@@ -104,6 +108,17 @@
             if (HasLocationToWest)
             {
                 CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate); 
+            }
+        }
+
+        private void GivePlayerQuestsAtLocation()
+        {
+            foreach (Quest quest in CurrentLocation.LocationQuests)
+            {
+                if (!CurrentPlayer.Quests.Any(q => q.PlayerQuest.ID == quest.ID))
+                {
+                    CurrentPlayer.Quests.Add(new QuestStatus(quest));
+                }
             }
         }
     }

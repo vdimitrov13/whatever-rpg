@@ -40,6 +40,8 @@
                 "You see a small hut, with plants drying from the roof.",
                 "/WhateverRPGEngine;component/Resources/HerbalistsHut.png");
 
+            newWorld.LocationAt(0, 1).LocationQuests.Add(QuestFactory.GetQuestByID(1));
+
             newWorld.AddLocation(0, 2, "Herbalist's garden",
                 "There are many plants here, with snakes hiding behind them.",
                 "/WhateverRPGEngine;component/Resources/HerbalistsGarden.png");

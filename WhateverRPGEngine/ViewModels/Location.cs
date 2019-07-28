@@ -1,4 +1,7 @@
-﻿namespace WhateverRPGEngine.ViewModels
+﻿using System.Collections.Generic;
+using WhateverRPGEngine.Models;
+
+namespace WhateverRPGEngine.ViewModels
 {
     public class Location
     {
@@ -11,5 +14,7 @@
         public string Description { get; set; }
 
         public string ImageName { get; set; }
+
+        public IList<Quest> LocationQuests { get; set; } = new List<Quest>();
     }
 }
