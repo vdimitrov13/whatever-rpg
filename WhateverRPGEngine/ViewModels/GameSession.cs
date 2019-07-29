@@ -1,18 +1,24 @@
 ﻿namespace WhateverRPGEngine.ViewModels
 {
+    using System;
     using System.Linq;
+    using WhateverRPGEngine.EventArgs;
     using WhateverRPGEngine.Factories;
     using WhateverRPGEngine.Models;
     using WhateverRPGEngine.Utils;
 
     public class GameSession : BaseNotificationClass
     {
+        public event EventHandler<GameMessageEventArgs> OnMessageRaised;
+
         private Location _currentLocation;
         private Monster _currentMonster;
 
         public Player CurrentPlayer { get; set; }
 
         public World CurrentWorld { get; set; }
+
+        public Weapon CurrentWeapon { get; set; }
 
         public Location CurrentLocation
         {
@@ -143,6 +149,11 @@
         private void GetMonsterAtLocation()
         {
             CurrentMonster = CurrentLocation.GetMonster();
+        }
+
+        private void RaiseMessage(string message)
+        {
+            OnMessageRaised?.Invoke(this, new GameMessageEventArgs(message));
         }
     }
 }
