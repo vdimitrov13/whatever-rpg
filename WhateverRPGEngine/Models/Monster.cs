@@ -39,7 +39,7 @@
             int rewardExperiencePoints, int rewardGold)
         {
             Name = name;
-            ImageName = string.Format("/WhateverRPGEngine;component/Resources/MonsterImageFiles/{0}", imageName);
+            ImageName = string.Format($"/WhateverRPGEngine;component/Resources/MonsterImageFiles/{imageName}");
             MaximumHitPoints = maximumHitPoints;
             HitPoints = hitPoints;
             RewardExperiencePoints = rewardExperiencePoints;

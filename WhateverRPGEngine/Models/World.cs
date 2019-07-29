@@ -14,7 +14,7 @@
             loc.YCoordinate = yCoordinate;
             loc.Name = name;
             loc.Description = description;
-            loc.ImageName = imageName;
+            loc.ImageName = $"/WhateverRPGEngine;component/Resources/{imageName}";
 
             _locations.Add(loc);
         }
