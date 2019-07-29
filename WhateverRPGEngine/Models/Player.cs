@@ -1,6 +1,8 @@
 ﻿namespace WhateverRPGEngine.Models
 {
+    using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Linq;
     using WhateverRPGEngine.Utils;
 
     public class Player : BaseNotificationClass
@@ -80,7 +82,17 @@
 
         public ObservableCollection<GameItem> Inventory { get; set; }
 
+        public List<GameItem> Weapons =>
+            Inventory.Where(i => i is Weapon).ToList();
+
         public ObservableCollection<QuestStatus> Quests { get; set; }
+
+        public void AddItemToInventory(GameItem item)
+        {
+            Inventory.Add(item);
+
+            OnPropertyChanged(nameof(Weapons));
+        }
 
     }
 }
