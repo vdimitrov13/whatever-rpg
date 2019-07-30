@@ -18,6 +18,8 @@
 
         public string ImageName { get; set; }
 
+        public Trader TraderHere { get; set; }
+
         public IList<Quest> LocationQuests { get; set; } = new List<Quest>();
 
         public List<MonsterEncounter> MonstersHere { get; set; } =

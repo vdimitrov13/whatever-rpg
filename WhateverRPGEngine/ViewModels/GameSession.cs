@@ -13,6 +13,7 @@
 
         private Location _currentLocation;
         private Monster _currentMonster;
+        private Trader _currentTrader;
 
         public Player CurrentPlayer { get; set; }
 
@@ -36,10 +37,26 @@
                 CompleteQuestsAtLocation();
                 GivePlayerQuestsAtLocation();
                 GetMonsterAtLocation();
+
+                CurrentTrader = CurrentLocation.TraderHere;
             }
         }
 
         public bool HasMonster => CurrentMonster != null;
+
+        public Trader CurrentTrader
+        {
+            get { return _currentTrader; }
+            set
+            {
+                _currentTrader = value;
+
+                OnPropertyChanged(nameof(CurrentTrader));
+                OnPropertyChanged(nameof(HasTrader));
+            }
+        }
+
+        public bool HasTrader => CurrentTrader != null;
 
         public Monster CurrentMonster
         {
