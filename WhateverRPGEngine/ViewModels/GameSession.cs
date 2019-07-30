@@ -90,8 +90,8 @@
             };
 
             CurrentWorld = WorldFactory.CreateWorld();
-            CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1001));
-            CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1002));
+            CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(1001));
+            CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(1002));
             CurrentLocation = CurrentWorld.LocationAt(0, 0);
 
             GivePlayerQuestsAtLocation();
