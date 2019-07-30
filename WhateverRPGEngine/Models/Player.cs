@@ -5,34 +5,15 @@
     using System.Linq;
     using WhateverRPGEngine.Utils;
 
-    public class Player : BaseNotificationClass
+    public class Player : LivingEntity
     {
-        private string _name;
-        private int _hitPoints;
+        private string _characterClass;
         private int _experiencePoints;
         private int _level;
-        private int _gold;
-        private string _characterClass;
-
-        public Player()
-        {
-            Inventory = new ObservableCollection<GameItem>();
-            Quests = new ObservableCollection<QuestStatus>();
-        }
-
-        public string Name
-        {
-            get => _name;
-            set
-            {
-                _name = value;
-                OnPropertyChanged(nameof(Name));
-            }
-        }
 
         public string CharacterClass
         {
-            get => _characterClass;
+            get { return _characterClass; }
             set
             {
                 _characterClass = value;
@@ -40,19 +21,9 @@
             }
         }
 
-        public int HitPoints
-        {
-            get => _hitPoints;
-            set
-            {
-                _hitPoints = value;
-                OnPropertyChanged(nameof(HitPoints));
-            }
-        }
-
         public int ExperiencePoints
         {
-            get => _experiencePoints;
+            get { return _experiencePoints; }
             set
             {
                 _experiencePoints = value;
@@ -62,7 +33,7 @@
 
         public int Level
         {
-            get => _level;
+            get { return _level; }
             set
             {
                 _level = value;
@@ -70,35 +41,11 @@
             }
         }
 
-        public int Gold
-        {
-            get => _gold;
-            set
-            {
-                _gold = value;
-                OnPropertyChanged(nameof(Gold));
-            }
-        }
-
-        public ObservableCollection<GameItem> Inventory { get; set; }
-
-        public List<GameItem> Weapons =>
-            Inventory.Where(i => i is Weapon).ToList();
-
         public ObservableCollection<QuestStatus> Quests { get; set; }
-
-        public void AddItemToInventory(GameItem item)
+        
+        public Player()
         {
-            Inventory.Add(item);
-
-            OnPropertyChanged(nameof(Weapons));
-        }
-
-        public void RemoveItemFromInventory(GameItem item)
-        {
-            Inventory.Remove(item);
-
-            OnPropertyChanged(nameof(Weapons));
+            Quests = new ObservableCollection<QuestStatus>();
         }
 
         public bool HasAllTheseItems(List<ItemQuantity> items)
