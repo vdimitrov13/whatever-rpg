@@ -22,6 +22,7 @@
             ImageName = $"/Engine;component/Images/Monsters/{imageName}";
             MinimumDamage = minimumDamage;
             MaximumDamage = maximumDamage;
+            RewardExperiencePoints = rewardExperiencePoints;
         }
     }
 }

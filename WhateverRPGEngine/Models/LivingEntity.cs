@@ -12,13 +12,15 @@
         private int _currentHitPoints;
         private int _maximumHitPoints;
         private int _gold;
-   
-        protected LivingEntity(string name, int maximumHitPoints, int currentHitPoints, int gold)
+        private int _level;
+
+        protected LivingEntity(string name, int maximumHitPoints, int currentHitPoints, int gold, int level = 1)
         {
             Name = name;
             MaximumHitPoints = maximumHitPoints;
             CurrentHitPoints = currentHitPoints;
             Gold = gold;
+            Level = level;
 
             Inventory = new ObservableCollection<GameItem>();
             GroupedInventory = new ObservableCollection<GroupedInventoryItem>();
@@ -47,10 +49,20 @@
         public int MaximumHitPoints
         {
             get { return _maximumHitPoints; }
-            private set
+            protected set
             {
                 _maximumHitPoints = value;
                 OnPropertyChanged(nameof(MaximumHitPoints));
+            }
+        }
+
+        public int Level
+        {
+            get { return _level; }
+            protected set
+            {
+                _level = value;
+                OnPropertyChanged(nameof(Level));
             }
         }
 
@@ -141,8 +153,9 @@
         {
             Inventory.Remove(item);
 
-            GroupedInventoryItem groupedInventoryItemToRemove =
-                GroupedInventory.FirstOrDefault(gi => gi.Item == item);
+            GroupedInventoryItem groupedInventoryItemToRemove = item.IsUnique ?
+                GroupedInventory.FirstOrDefault(gi => gi.Item == item) :
+                GroupedInventory.FirstOrDefault(gi => gi.Item.ItemTypeID == item.ItemTypeID);
 
             if (groupedInventoryItemToRemove != null)
             {
