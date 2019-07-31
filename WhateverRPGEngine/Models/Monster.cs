@@ -19,7 +19,7 @@
                 int rewardExperiencePoints, int gold) :
             base(name, maximumHitPoints, currentHitPoints, gold)
         {
-            ImageName = $"/Engine;component/Images/Monsters/{imageName}";
+            ImageName = $"/WhateverRPGEngine;component/Resources/MonsterImageFiles/{imageName}";
             MinimumDamage = minimumDamage;
             MaximumDamage = maximumDamage;
             RewardExperiencePoints = rewardExperiencePoints;

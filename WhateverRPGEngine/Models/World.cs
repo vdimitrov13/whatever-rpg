@@ -14,7 +14,7 @@
                 yCoordinate, 
                 name, 
                 description, 
-                $"/Engine;component/Images/Locations/{imageName}"));
+                $"/WhateverRPGEngine;component/Resources/{imageName}"));
         }
 
         public Location LocationAt(int xCoordinate, int yCoordinate)
