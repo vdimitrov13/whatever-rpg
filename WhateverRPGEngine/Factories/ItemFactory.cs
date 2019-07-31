@@ -6,38 +6,36 @@
 
     internal static class ItemFactory
     {
-        private readonly static IList<GameItem> _gameItems;
+        private static readonly List<GameItem> _gameItems = new List<GameItem>();
 
         static ItemFactory()
         {
-            _gameItems = new List<GameItem>
-            {
-                new Weapon(1001, "Pointy Stick", 1, 1, 2),
-                new Weapon(1002, "Rusty Sword", 5, 1, 3),
-                new GameItem(9001, "Snake Fang", 1, false),
-                new GameItem(9002, "Snake Skin", 2, false),
-                new GameItem(9003, "Rat tail", 1, false),
-                new GameItem(9004, "Rat fur", 2, false),
-                new GameItem(9005, "Spider fang", 1, false),
-                new GameItem(9006, "Spider silk", 2, false)
-        };
+            BuildWeapon(1001, "Pointy Stick", 1, 1, 2);
+            BuildWeapon(1002, "Rusty Sword", 5, 1, 3);
+
+            BuildMiscellaneousItem(9001, "Snake fang", 1);
+            BuildMiscellaneousItem(9002, "Snakeskin", 2);
+            BuildMiscellaneousItem(9003, "Rat tail", 1);
+            BuildMiscellaneousItem(9004, "Rat fur", 2);
+            BuildMiscellaneousItem(9005, "Spider fang", 1);
+            BuildMiscellaneousItem(9006, "Spider silk", 2);
         }
 
         public static GameItem CreateGameItem(int itemTypeID)
         {
-            GameItem standardItem = _gameItems.FirstOrDefault(item => item.ItemTypeID == itemTypeID);
+            return _gameItems.FirstOrDefault(item => item.ItemTypeID == itemTypeID)?.Clone();
+        }
 
-            if (standardItem != null)
-            {
-                if (standardItem is Weapon)
-                {
-                    return (standardItem as Weapon).Clone();
-                }
+        private static void BuildMiscellaneousItem(int id, string name, int price)
+        {
+            _gameItems.Add(new GameItem(GameItem.ItemCategory.Miscellaneous, id, name, price));
+        }
 
-                return standardItem.Clone();
-            }
-
-            return null;
+        private static void BuildWeapon(int id, string name, int price,
+                                        int minimumDamage, int maximumDamage)
+        {
+            _gameItems.Add(new GameItem(GameItem.ItemCategory.Weapon, id, name, price,
+                                                true, minimumDamage, maximumDamage));
         }
     }
 }

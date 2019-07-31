@@ -85,7 +85,7 @@
         public ObservableCollection<GroupedInventoryItem> GroupedInventory { get; }
 
         public List<GameItem> Weapons =>
-            Inventory.Where(i => i is Weapon).ToList();
+            Inventory.Where(i => i.Category == GameItem.ItemCategory.Weapon).ToList();
 
         public void TakeDamage(int hitPointsOfDamage)
         {
