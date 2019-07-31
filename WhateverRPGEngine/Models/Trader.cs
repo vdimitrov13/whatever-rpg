@@ -1,13 +1,10 @@
 ﻿namespace WhateverRPGEngine.Models
 {
-    using System.Collections.ObjectModel;
-
     public class Trader : LivingEntity
     {
         public Trader(string name)
+            :base(name, 9999, 9999, 9999)
         {
-            Name = name;
-            Inventory = new ObservableCollection<GameItem>();
         }
     }
 }
