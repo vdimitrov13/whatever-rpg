@@ -32,7 +32,7 @@
             private set
             {
                 _name = value;
-                OnPropertyChanged(nameof(Name));
+                OnPropertyChanged();
             }
         }
 
@@ -42,7 +42,7 @@
             private set
             {
                 _currentHitPoints = value;
-                OnPropertyChanged(nameof(CurrentHitPoints));
+                OnPropertyChanged();
             }
         }
 
@@ -52,7 +52,7 @@
             protected set
             {
                 _maximumHitPoints = value;
-                OnPropertyChanged(nameof(MaximumHitPoints));
+                OnPropertyChanged();
             }
         }
 
@@ -62,7 +62,7 @@
             protected set
             {
                 _level = value;
-                OnPropertyChanged(nameof(Level));
+                OnPropertyChanged();
             }
         }
 
@@ -72,7 +72,7 @@
             private set
             {
                 _gold = value;
-                OnPropertyChanged(nameof(Gold));
+                OnPropertyChanged();
             }
         }
 
@@ -80,9 +80,9 @@
 
         public event EventHandler OnKilled;
 
-        public ObservableCollection<GameItem> Inventory { get; set; }
+        public ObservableCollection<GameItem> Inventory { get; }
 
-        public ObservableCollection<GroupedInventoryItem> GroupedInventory { get; set; }
+        public ObservableCollection<GroupedInventoryItem> GroupedInventory { get; }
 
         public List<GameItem> Weapons =>
             Inventory.Where(i => i is Weapon).ToList();
@@ -146,7 +146,7 @@
                 GroupedInventory.First(gi => gi.Item.ItemTypeID == item.ItemTypeID).Quantity++;
             }
 
-            OnPropertyChanged(nameof(Weapons));
+            OnPropertyChanged();
         }
 
         public void RemoveItemFromInventory(GameItem item)
@@ -169,7 +169,7 @@
                 }
             }
 
-            OnPropertyChanged(nameof(Weapons));
+            OnPropertyChanged();
         }
 
         private void RaiseOnKilledEvent()
