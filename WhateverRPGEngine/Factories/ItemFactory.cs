@@ -19,7 +19,7 @@
             BuildWeapon(1502, "Rat claws", 0, 0, 2);
             BuildWeapon(1503, "Spider fangs", 0, 0, 4);
 
-            BuildHealingItem(2001, "Granola bar", 5, 2);
+            BuildHealingItem(2001, "Health Potion", 5, 5);
 
             BuildMiscellaneousItem(9001, "Snake fang", 1);
             BuildMiscellaneousItem(9002, "Snakeskin", 2);
