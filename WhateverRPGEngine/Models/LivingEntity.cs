@@ -13,6 +13,7 @@
         private int _maximumHitPoints;
         private int _gold;
         private int _level;
+        private GameItem _currentWeapon;
 
         protected LivingEntity(string name, int maximumHitPoints, int currentHitPoints, int gold, int level = 1)
         {
@@ -76,7 +77,30 @@
             }
         }
 
+        public GameItem CurrentWeapon
+        {
+            get { return _currentWeapon; }
+            set
+            {
+                if (_currentWeapon != null)
+                {
+                    _currentWeapon.Action.OnActionPerformed -= RaiseActionPerformedEvent;
+                }
+
+                _currentWeapon = value;
+
+                if (_currentWeapon != null)
+                {
+                    _currentWeapon.Action.OnActionPerformed += RaiseActionPerformedEvent;
+                }
+
+                OnPropertyChanged();
+            }
+        }
+
         public bool IsDead => CurrentHitPoints <= 0;
+
+        public event EventHandler<string> OnActionPerformed;
 
         public event EventHandler OnKilled;
 
@@ -86,6 +110,11 @@
 
         public List<GameItem> Weapons =>
             Inventory.Where(i => i.Category == GameItem.ItemCategory.Weapon).ToList();
+
+        public void UseCurrentWeaponOn(LivingEntity target)
+        {
+            CurrentWeapon.PerformAction(this, target);
+        }
 
         public void TakeDamage(int hitPointsOfDamage)
         {
@@ -176,5 +205,11 @@
         {
             OnKilled?.Invoke(this, new System.EventArgs());
         }
+
+        private void RaiseActionPerformedEvent(object sender, string result)
+        {
+            OnActionPerformed?.Invoke(this, result);
+        }
+
     }
 }

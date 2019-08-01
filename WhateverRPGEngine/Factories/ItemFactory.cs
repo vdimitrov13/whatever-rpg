@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using WhateverRPGEngine.Actions;
     using WhateverRPGEngine.Models;
 
     internal static class ItemFactory
@@ -34,8 +35,11 @@
         private static void BuildWeapon(int id, string name, int price,
                                         int minimumDamage, int maximumDamage)
         {
-            _gameItems.Add(new GameItem(GameItem.ItemCategory.Weapon, id, name, price,
-                                                true, minimumDamage, maximumDamage));
+            GameItem weapon = new GameItem(GameItem.ItemCategory.Weapon, id, name, price, true);
+
+            weapon.Action = new AttackWithWeapon(weapon, minimumDamage, maximumDamage);
+
+            _gameItems.Add(weapon);
         }
     }
 }

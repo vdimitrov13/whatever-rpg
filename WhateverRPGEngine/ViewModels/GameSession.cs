@@ -16,6 +16,19 @@
         private Monster _currentMonster;
         private Trader _currentTrader;
 
+        public GameSession()
+        {
+            CurrentPlayer = new Player("Pesho", "Warrior", 0, 10, 10, 1);
+
+            if (!CurrentPlayer.Weapons.Any())
+            {
+                CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(1001));
+            }
+
+            CurrentWorld = WorldFactory.CreateWorld();
+            CurrentLocation = CurrentWorld.LocationAt(0, 0);
+        }
+
         public Player CurrentPlayer
         {
             get { return _currentPlayer; }
@@ -101,19 +114,6 @@
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(HasMonster));
             }
-        }
-
-        public GameSession()
-        {
-            CurrentPlayer = new Player("Pesho", "Warrior", 0, 10, 10, 1);
-
-            if (!CurrentPlayer.Weapons.Any())
-            {
-                CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(1001));
-            }
-
-            CurrentWorld = WorldFactory.CreateWorld();
-            CurrentLocation = CurrentWorld.LocationAt(0, 0);
         }
 
         public bool HasLocationToNorth => CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1) != null;
@@ -243,24 +243,13 @@
 
         public void AttackCurrentMonster()
         {
-            if (CurrentWeapon == null)
+            if (CurrentPlayer.CurrentWeapon == null)
             {
                 RaiseMessage("You must select a weapon, to attack.");
                 return;
             }
 
-            // Determine damage to monster
-            int damageToMonster = RandomNumberGenerator.NumberBetween(CurrentWeapon.MinimumDamage, CurrentWeapon.MaximumDamage);
-
-            if (damageToMonster == 0)
-            {
-                RaiseMessage($"You missed the {CurrentMonster.Name}.");
-            }
-            else
-            {
-                CurrentMonster.TakeDamage(damageToMonster);
-                RaiseMessage($"You hit the {CurrentMonster.Name} for {damageToMonster} points.");
-            }
+            CurrentPlayer.UseCurrentWeaponOn(CurrentMonster);
 
             if (CurrentMonster.IsDead)
             {
