@@ -42,12 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\AttackWithWeapon.cs" />
+    <Compile Include="Actions\BaseAction.cs" />
+    <Compile Include="Actions\Heal.cs" />
     <Compile Include="EventArgs\GameMessageEventArgs.cs" />
     <Compile Include="Factories\ItemFactory.cs" />
     <Compile Include="Factories\MonsterFactory.cs" />
     <Compile Include="Factories\QuestFactory.cs" />
     <Compile Include="Factories\TraderFactory.cs" />
     <Compile Include="Factories\WorldFactory.cs" />
+    <Compile Include="Interfaces\Actions\IAction.cs" />
     <Compile Include="Models\GameItem.cs" />
     <Compile Include="Models\GroupedInventoryItem.cs" />
     <Compile Include="Models\ItemQuantity.cs" />

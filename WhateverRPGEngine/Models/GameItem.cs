@@ -2,13 +2,15 @@
 namespace WhateverRPGEngine.Models
 {
     using WhateverRPGEngine.Actions;
+    using WhateverRPGEngine.Interfaces.Actions;
 
     public class GameItem
     {
         public enum ItemCategory
         {
             Miscellaneous,
-            Weapon
+            Weapon,
+            Consumable
         }
 
         public ItemCategory Category { get; }
@@ -21,7 +23,7 @@ namespace WhateverRPGEngine.Models
 
         public bool IsUnique { get; }
 
-        public AttackWithWeapon Action { get; set; }
+        public IAction Action { get; set; }
 
         public GameItem(
             ItemCategory category, 
@@ -29,7 +31,7 @@ namespace WhateverRPGEngine.Models
             string name, 
             int price, 
             bool isUnique = false, 
-            AttackWithWeapon action = null)
+            IAction action = null)
         {
             Category = category;
             ItemTypeID = itemTypeID;

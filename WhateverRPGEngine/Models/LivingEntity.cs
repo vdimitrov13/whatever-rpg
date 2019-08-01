@@ -14,6 +14,7 @@
         private int _gold;
         private int _level;
         private GameItem _currentWeapon;
+        private GameItem _currentConsumable;
 
         protected LivingEntity(string name, int maximumHitPoints, int currentHitPoints, int gold, int level = 1)
         {
@@ -77,6 +78,27 @@
             }
         }
 
+        public GameItem CurrentConsumable
+        {
+            get => _currentConsumable;
+            set
+            {
+                if (_currentConsumable != null)
+                {
+                    _currentConsumable.Action.OnActionPerformed -= RaiseActionPerformedEvent;
+                }
+
+                _currentConsumable = value;
+
+                if (_currentConsumable != null)
+                {
+                    _currentConsumable.Action.OnActionPerformed += RaiseActionPerformedEvent;
+                }
+
+                OnPropertyChanged();
+            }
+        }
+
         public GameItem CurrentWeapon
         {
             get { return _currentWeapon; }
@@ -100,6 +122,8 @@
 
         public bool IsDead => CurrentHitPoints <= 0;
 
+        public bool HasConsumable => Consumables.Any();
+
         public event EventHandler<string> OnActionPerformed;
 
         public event EventHandler OnKilled;
@@ -108,12 +132,21 @@
 
         public ObservableCollection<GroupedInventoryItem> GroupedInventory { get; }
 
+        public List<GameItem> Consumables =>
+            Inventory.Where(i => i.Category == GameItem.ItemCategory.Consumable).ToList();
+
         public List<GameItem> Weapons =>
             Inventory.Where(i => i.Category == GameItem.ItemCategory.Weapon).ToList();
 
         public void UseCurrentWeaponOn(LivingEntity target)
         {
             CurrentWeapon.PerformAction(this, target);
+        }
+
+        public void UseCurrentConsumable()
+        {
+            CurrentConsumable.PerformAction(this, this);
+            RemoveItemFromInventory(CurrentConsumable);
         }
 
         public void TakeDamage(int hitPointsOfDamage)
@@ -175,7 +208,9 @@
                 GroupedInventory.First(gi => gi.Item.ItemTypeID == item.ItemTypeID).Quantity++;
             }
 
-            OnPropertyChanged();
+            OnPropertyChanged(nameof(Weapons));
+            OnPropertyChanged(nameof(Consumables));
+            OnPropertyChanged(nameof(HasConsumable));
         }
 
         public void RemoveItemFromInventory(GameItem item)
@@ -198,7 +233,9 @@
                 }
             }
 
-            OnPropertyChanged();
+            OnPropertyChanged(nameof(Weapons));
+            OnPropertyChanged(nameof(Consumables));
+            OnPropertyChanged(nameof(HasConsumable));
         }
 
         private void RaiseOnKilledEvent()
