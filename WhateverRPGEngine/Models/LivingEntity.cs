@@ -26,7 +26,7 @@
 
             Inventory = new ObservableCollection<GameItem>();
             GroupedInventory = new ObservableCollection<GroupedInventoryItem>();
-    }
+        }
 
         public string Name
         {
