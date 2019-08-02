@@ -59,5 +59,10 @@
 
             _gameItems.Add(weapon);
         }
+
+        public static string ItemName(int itemTypeID)
+        {
+            return _gameItems.FirstOrDefault(i => i.ItemTypeID == itemTypeID)?.Name ?? "";
+        }
     }
 }

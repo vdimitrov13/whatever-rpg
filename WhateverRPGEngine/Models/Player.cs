@@ -1,10 +1,8 @@
 ﻿namespace WhateverRPGEngine.Models
 {
     using System;
-    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
-    using WhateverRPGEngine.Utils;
 
     public class Player : LivingEntity
     {
@@ -49,19 +47,6 @@
         public ObservableCollection<Recipe> Recipes { get; }
 
         public event EventHandler OnLeveledUp;
-
-        public bool HasAllTheseItems(List<ItemQuantity> items)
-        {
-            foreach (ItemQuantity item in items)
-            {
-                if (Inventory.Count(i => i.ItemTypeID == item.ItemID) < item.Quantity)
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
 
         public void AddExperience(int experiencePoints)
         {
