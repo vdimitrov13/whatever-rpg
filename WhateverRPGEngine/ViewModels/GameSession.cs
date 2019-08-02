@@ -268,6 +268,11 @@
 
         public void AttackCurrentMonster()
         {
+            if (CurrentMonster == null)
+            {
+                return;
+            }
+
             if (CurrentPlayer.CurrentWeapon == null)
             {
                 RaiseMessage("You must select a weapon, to attack.");
@@ -289,7 +294,10 @@
 
         public void UseCurrentConsumable()
         {
-            CurrentPlayer.UseCurrentConsumable();
+            if (CurrentPlayer.CurrentConsumable != null)
+            {
+                CurrentPlayer.UseCurrentConsumable();
+            }
         }
 
         private void OnCurrentPlayerKilled(object sender, System.EventArgs eventArgs)
