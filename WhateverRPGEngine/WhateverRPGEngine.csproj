@@ -31,6 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -66,29 +68,57 @@
     <Compile Include="Models\World.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\BaseNotificationClass.cs" />
+    <Compile Include="Utils\Converters\FileToBitmapConverter.cs" />
     <Compile Include="Utils\Extensions\ExtensionMethods.cs" />
     <Compile Include="Utils\RandomNumberGenerator.cs" />
     <Compile Include="ViewModels\GameSession.cs" />
     <Compile Include="ViewModels\Location.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\FarmFields.png" />
-    <Resource Include="Resources\Farmhouse.png" />
-    <Resource Include="Resources\HerbalistsGarden.png" />
-    <Resource Include="Resources\HerbalistsHut.png" />
-    <Resource Include="Resources\Home.png" />
-    <Resource Include="Resources\SpiderForest.png" />
-    <Resource Include="Resources\TownGate.png" />
-    <Resource Include="Resources\TownSquare.png" />
-    <Resource Include="Resources\Trader.png" />
+    <None Include="Resources\FarmFields.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Farmhouse.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\HerbalistsGarden.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\HerbalistsHut.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Home.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\SpiderForest.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\TownGate.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\TownSquare.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Trader.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\MonsterImageFiles\GiantSpider.png" />
-    <Resource Include="Resources\MonsterImageFiles\Rat.png" />
-    <Resource Include="Resources\MonsterImageFiles\Snake.png" />
+    <None Include="Resources\MonsterImageFiles\GiantSpider.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\MonsterImageFiles\Rat.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\MonsterImageFiles\Snake.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="GameData\GameItems.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameData\GameLocations.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
