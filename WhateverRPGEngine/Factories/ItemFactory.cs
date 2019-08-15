@@ -7,6 +7,7 @@
     using System.Xml;
     using WhateverRPGEngine.Actions;
     using WhateverRPGEngine.Models;
+    using WhateverRPGEngine.Utils.Extensions;
 
     internal static class ItemFactory
     {
@@ -44,37 +45,27 @@
 
                 GameItem gameItem =
                     new GameItem(itemCategory,
-                                 GetXmlAttributeAsInt(node, "ID"),
-                                 GetXmlAttributeAsString(node, "Name"),
-                                 GetXmlAttributeAsInt(node, "Price"),
+                                 node.AttributeAsInt("ID"),
+                                 node.AttributeAsString("Name"),
+                                 node.AttributeAsInt("Price"),
                                  itemCategory == GameItem.ItemCategory.Weapon);
 
                 if (itemCategory == GameItem.ItemCategory.Weapon)
                 {
                     gameItem.Action =
                         new AttackWithWeapon(gameItem,
-                                             GetXmlAttributeAsInt(node, "MinimumDamage"),
-                                             GetXmlAttributeAsInt(node, "MaximumDamage"));
+                                             node.AttributeAsInt("MinimumDamage"),
+                                             node.AttributeAsInt("MaximumDamage"));
                 }
                 else if (itemCategory == GameItem.ItemCategory.Consumable)
                 {
                     gameItem.Action =
                         new Heal(gameItem,
-                                 GetXmlAttributeAsInt(node, "HitPointsToHeal"));
+                                 node.AttributeAsInt("HitPointsToHeal"));
                 }
 
                 _gameItems.Add(gameItem);
             }
-        }
-
-        private static string GetXmlAttributeAsString(XmlNode node, string attributeName)
-        {
-            return GetXmlAttribute(node, attributeName);
-        }
-
-        private static int GetXmlAttributeAsInt(XmlNode node, string attributeName)
-        {
-            return Convert.ToInt32(GetXmlAttribute(node, attributeName));
         }
 
         private static string GetXmlAttribute(XmlNode node, string attributeName)
