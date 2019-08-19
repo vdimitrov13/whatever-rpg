@@ -21,7 +21,7 @@
             base(name, maximumHitPoints, maximumHitPoints, gold)
         {
             ID = id;
-            ImageName = $"/WhateverRPGEngine;component/Resources/MonsterImageFiles/{imageName}";
+            ImageName = imageName;
             CurrentWeapon = currentWeapon;
             RewardExperiencePoints = rewardExperiencePoints;
         }
