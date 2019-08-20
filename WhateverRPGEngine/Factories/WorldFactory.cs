@@ -67,7 +67,7 @@
             }
 
             location.TraderHere =
-                TraderFactory.GetTraderByName(traderHere.AttributeAsString("Name"));
+                TraderFactory.GetTraderByName(traderHere.AttributeAsString("ID"));
         }
 
         private static void AddQuests(Location location, XmlNodeList quests)

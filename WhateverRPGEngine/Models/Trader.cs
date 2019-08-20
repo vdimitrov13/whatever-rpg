@@ -2,9 +2,12 @@
 {
     public class Trader : LivingEntity
     {
-        public Trader(string name)
+        public int ID { get; set; }
+
+        public Trader(int id, string name)
             :base(name, 9999, 9999, 9999)
         {
+            ID = id;
         }
     }
 }
