@@ -28,8 +28,6 @@
 
         public void AddItemToLootTable(int id, int percentage)
         {
-            // Remove the entry from the loot table,
-            // if it already contains an entry with this ID
             _lootTable.RemoveAll(ip => ip.ID == id);
 
             _lootTable.Add(new ItemPercentage(id, percentage));
