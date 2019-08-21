@@ -50,9 +50,9 @@
             }
         }
 
-        public static Trader GetTraderByName(string name)
+        public static Trader GetTraderByID(int id)
         {
-            return _traders.FirstOrDefault(t => t.Name == name);
+            return _traders.FirstOrDefault(t => t.ID == id);
         }
     }
 }

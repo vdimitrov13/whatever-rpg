@@ -1,7 +1,6 @@
 ﻿
 namespace WhateverRPGEngine.Models
 {
-    using WhateverRPGEngine.Actions;
     using WhateverRPGEngine.Interfaces.Actions;
 
     public class GameItem
