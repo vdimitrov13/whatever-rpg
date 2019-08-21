@@ -8,6 +8,9 @@
     <Weapon ID="1502" Name="Rat claw" Price="0" MinimumDamage="0" MaximumDamage="2"/>
     <Weapon ID="1503" Name="Spider fang" Price="0" MinimumDamage="0" MaximumDamage="4"/>
   </Weapons>
+  <Armor>
+    <Armor ID="4001" Name="Trader's Gloves" Price="5" HPBonus="1" DMGBonus="0"/>
+  </Armor>
   <HealingItems>
     <HealingItem ID="2001" Name="Granola bar" Price="5" HitPointsToHeal="2"/>
   </HealingItems>

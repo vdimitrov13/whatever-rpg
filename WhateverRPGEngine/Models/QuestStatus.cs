@@ -7,6 +7,7 @@
         private bool _isCompleted;
 
         public Quest PlayerQuest { get; }
+
         public bool IsCompleted
         {
             get { return _isCompleted; }

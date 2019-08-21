@@ -10,4 +10,14 @@
       <Item ID="1002" Quantity="1"/>
     </RewardItems>
   </Quest>
+  <Quest ID="2" RewardExperiencePoints="35" RewardGold="15">
+    <Name><![CDATA[Clear the farmer's field]]></Name>
+    <Description><![CDATA[Defeat the rats in the Farmer's field.]]></Description>
+    <ItemsToComplete>
+      <Item ID="9003" Quantity="5"/>
+    </ItemsToComplete>
+    <RewardItems>
+      <Item ID="1002" Quantity="1"/>
+    </RewardItems>
+  </Quest>
 </Quests>

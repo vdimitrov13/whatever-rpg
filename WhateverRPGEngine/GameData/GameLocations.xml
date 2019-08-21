@@ -2,6 +2,9 @@
 <Locations RootImagePath="/Resources/">
   <Location X="-2" Y="-1" Name="Farmer's Field" ImageName="FarmFields.png">
     <Description><![CDATA[There are rows of corn here, with giant rats hiding between them.]]></Description>
+    <Quests>
+      <Quest ID="2"/>
+    </Quests>
     <Monsters>
       <Monster ID="2" Percent="100"/>
     </Monsters>
