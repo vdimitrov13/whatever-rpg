@@ -192,13 +192,21 @@
                               AutoGenerateColumns="False"
                               HeadersVisibility="Column">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name"
+                            <DataGridTextColumn Header="Name" Binding="{Binding PlayerQuest.Name, Mode=OneWay}" Width="Auto" >
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" Value="{Binding PlayerQuest.Description}" />
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <!--<DataGridTextColumn Header="Name"
                                                 Binding="{Binding PlayerQuest.Name, Mode=OneWay}"
-                                                Width="*"/>
+                                                Width="*"
+                            </DataGridTextColumn>-->
                             <DataGridTextColumn Header="Done?"
                                                 Binding="{Binding IsCompleted, Mode=OneWay}"
                                                 Width="Auto"/>
-                        </DataGrid.Columns>
+                            </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
 

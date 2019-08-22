@@ -2,7 +2,7 @@
 <Quests>
   <Quest ID="1" RewardExperiencePoints="25" RewardGold="10">
     <Name><![CDATA[Clear the herb garden]]></Name>
-    <Description><![CDATA[Defeat the snakes in the Herbalist's garden.]]></Description>
+    <Description><![CDATA[Get five snake fangs for the Herbalist.]]></Description>
     <ItemsToComplete>
       <Item ID="9001" Quantity="5"/>
     </ItemsToComplete>
@@ -12,7 +12,7 @@
   </Quest>
   <Quest ID="2" RewardExperiencePoints="35" RewardGold="15">
     <Name><![CDATA[Clear the farmer's field]]></Name>
-    <Description><![CDATA[Defeat the rats in the Farmer's field.]]></Description>
+    <Description><![CDATA[Defeat five rats in Farmer's field.]]></Description>
     <ItemsToComplete>
       <Item ID="9003" Quantity="5"/>
     </ItemsToComplete>
