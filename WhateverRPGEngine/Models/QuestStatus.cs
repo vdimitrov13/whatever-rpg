@@ -10,7 +10,7 @@
 
         public bool IsCompleted
         {
-            get { return _isCompleted; }
+            get => _isCompleted;
             set
             {
                 _isCompleted = value;

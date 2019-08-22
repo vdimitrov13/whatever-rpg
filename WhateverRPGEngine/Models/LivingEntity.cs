@@ -30,7 +30,7 @@
 
         public string Name
         {
-            get { return _name; }
+            get => _name;
             private set
             {
                 _name = value;
@@ -40,7 +40,7 @@
 
         public int CurrentHitPoints
         {
-            get { return _currentHitPoints; }
+            get => _currentHitPoints;
             private set
             {
                 _currentHitPoints = value;
@@ -50,7 +50,7 @@
 
         public int MaximumHitPoints
         {
-            get { return _maximumHitPoints; }
+            get => _maximumHitPoints;
             protected set
             {
                 _maximumHitPoints = value;
@@ -60,7 +60,7 @@
 
         public int Level
         {
-            get { return _level; }
+            get => _level;
             protected set
             {
                 _level = value;
@@ -70,7 +70,7 @@
 
         public int Gold
         {
-            get { return _gold; }
+            get => _gold;
             private set
             {
                 _gold = value;
@@ -101,7 +101,7 @@
 
         public GameItem CurrentWeapon
         {
-            get { return _currentWeapon; }
+            get => _currentWeapon;
             set
             {
                 if (_currentWeapon != null)

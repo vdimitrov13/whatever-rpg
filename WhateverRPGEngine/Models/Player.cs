@@ -22,7 +22,7 @@
 
         public string CharacterClass
         {
-            get { return _characterClass; }
+            get => _characterClass;
             set
             {
                 _characterClass = value;
@@ -32,7 +32,7 @@
 
         public int ExperiencePoints
         {
-            get { return _experiencePoints; }
+            get => _experiencePoints;
             private set
             {
                 _experiencePoints = value;

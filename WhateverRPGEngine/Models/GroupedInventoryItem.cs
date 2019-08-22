@@ -9,7 +9,7 @@
 
         public GameItem Item
         {
-            get { return _item; }
+            get => _item;
             set
             {
                 _item = value;
@@ -19,7 +19,7 @@
 
         public int Quantity
         {
-            get { return _quantity; }
+            get => _quantity;
             set
             {
                 _quantity = value;

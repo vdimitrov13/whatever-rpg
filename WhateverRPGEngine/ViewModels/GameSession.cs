@@ -38,7 +38,7 @@
 
         public Player CurrentPlayer
         {
-            get { return _currentPlayer; }
+            get => _currentPlayer;
             set
             {
                 if (_currentPlayer != null)
@@ -88,7 +88,7 @@
 
         public Trader CurrentTrader
         {
-            get { return _currentTrader; }
+            get => _currentTrader;
             set
             {
                 _currentTrader = value;
@@ -102,7 +102,7 @@
 
         public Monster CurrentMonster
         {
-            get { return _currentMonster; }
+            get => _currentMonster;
             set
             {
                 if (_currentMonster != null)
