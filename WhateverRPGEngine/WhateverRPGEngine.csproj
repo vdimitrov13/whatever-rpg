@@ -72,6 +72,7 @@
     <Compile Include="Utils\Converters\FileToBitmapConverter.cs" />
     <Compile Include="Utils\Extensions\ExtensionMethods.cs" />
     <Compile Include="Utils\RandomNumberGenerator.cs" />
+    <Compile Include="Utils\SaveLoadUtility.cs" />
     <Compile Include="ViewModels\GameSession.cs" />
     <Compile Include="ViewModels\Location.cs" />
   </ItemGroup>

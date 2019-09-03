@@ -9,6 +9,7 @@ namespace WhateverRPGEngine.Models
         {
             Miscellaneous,
             Weapon,
+            Armor,
             Consumable
         }
 
@@ -24,13 +25,16 @@ namespace WhateverRPGEngine.Models
 
         public IAction Action { get; set; }
 
+        public bool IsEquiped { get; set; }
+
         public GameItem(
             ItemCategory category, 
             int itemTypeID, 
             string name, 
             int price, 
             bool isUnique = false, 
-            IAction action = null)
+            IAction action = null,
+            bool isEquiped = false)
         {
             Category = category;
             ItemTypeID = itemTypeID;
@@ -38,6 +42,7 @@ namespace WhateverRPGEngine.Models
             Price = price;
             IsUnique = isUnique;
             Action = action;
+            IsEquiped = isEquiped;
         }
 
         public void PerformAction(LivingEntity actor, LivingEntity target)

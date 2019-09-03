@@ -8,6 +8,7 @@
     using System.Windows.Input;
     using WhateverRPGEngine.EventArgs;
     using WhateverRPGEngine.Models;
+    using WhateverRPGEngine.Utils;
     using WhateverRPGEngine.ViewModels;
 
     /// <summary>
@@ -116,6 +117,11 @@
                     }
                 }
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            SaveLoadUtility.Save(_gameSession);
         }
     }
 }

@@ -120,6 +120,28 @@
             }
         }
 
+        public void EquipItem(GameItem itemToEquip)
+        {
+            if(itemToEquip.Category != GameItem.ItemCategory.Armor)
+            {
+                throw new ArgumentOutOfRangeException($"You cannot equip {itemToEquip.Name}!");
+            }
+            else
+            {
+                Inventory.Where(x => x.ItemTypeID == itemToEquip.ItemTypeID).FirstOrDefault().IsEquiped = true;
+            }
+        }
+
+        public IEnumerable<GameItem> GetEquipedItems()
+        {
+            return Inventory.Where(x => x.IsEquiped == true);
+        }
+
+        public void UnEquipItem(GameItem itemToUnEquip)
+        {
+            GetEquipedItems().Where(d => d.ItemTypeID == itemToUnEquip.ItemTypeID).FirstOrDefault().IsEquiped = false;
+        }
+
         public bool IsDead => CurrentHitPoints <= 0;
 
         public bool HasConsumable => Consumables.Any();
@@ -131,6 +153,8 @@
         public ObservableCollection<GameItem> Inventory { get; }
 
         public ObservableCollection<GroupedInventoryItem> GroupedInventory { get; }
+
+        public ObservableCollection<GameItem> EquipedItems { get; }
 
         public List<GameItem> Consumables =>
             Inventory.Where(i => i.Category == GameItem.ItemCategory.Consumable).ToList();
